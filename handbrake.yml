@@ -14,10 +14,10 @@
     - name: 'Set Known Facts'
       set_fact:
         pgrole: 'handbrake'
-        intport: '5801'
-        extport: '5801'
-        intport2: '5903'
-        extport2: '5903'
+        intport: '5800'
+        extport: '5800'
+        intport2: '5900'
+        extport2: '5900'
         image: 'jlesage/handbrake'
 
     # CORE (MANDATORY) ############################################################
