@@ -82,7 +82,7 @@
     # MAIN DEPLOYMENT #############################################################
     - name: 'Create watch directory for {{pgrole}}'
       file:
-        path: {{path.stdout}}/handbrake/watch
+        path: '{{path.stdout}}/handbrake/watch'
         state: directory
         owner: 1000
         group: 1000
@@ -91,7 +91,7 @@
 
     - name: 'Create complete directory for {{pgrole}}'
       file:
-        path: {{path.stdout}}/handbrake/complete
+        path: '{{path.stdout}}/handbrake/complete'
         state: directory
         owner: 1000
         group: 1000
