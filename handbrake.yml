@@ -55,7 +55,7 @@
         pg_env:
           UID: 1000
           GID: 1000
-          SECURE_CONNECTION: 1
+#          SECURE_CONNECTION: 1
 
     # MAIN DEPLOYMENT #############################################################
     - name: 'Create watch directory for {{pgrole}}'
