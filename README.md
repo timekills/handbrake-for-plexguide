@@ -12,9 +12,10 @@ https://www.timekills.org/pg-apps/
 2. Type the command: git init
 3. Type the command: git remote add handbrake https://github.com/timekills/handbrake-for-plexguide.git
 4. Type the command: git pull handbrake master
-5. (Optional) rm -r README.md if you don't want the README file cluttering up your drectory
-6. Run Plexguide
+5. rm -r .git
+6. (Optional) rm -r README.md if you don't want the README file cluttering up your drectory
+7. Run Plexguide
 
 Deploy handbrake app like any other app
 
-Note the port for web use is 5801
+Note the port for web use is 5800
