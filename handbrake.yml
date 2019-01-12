@@ -33,24 +33,24 @@
     - name: 'Complete folder'
       block:
         - name: 'Creating new complete location'
-          command: 'mkdir -p {{path.stdout}}/{{pgrole}}/complete'
+          command: 'mkdir -p {{path.stdout}}/handbrake/complete'
 
     - name: 'Chown download folder'
-      shell: 'chown -R 1000:1000 {{path.stdout}}/{{pgrole}}/complete/'
+      shell: 'chown -R 1000:1000 {{path.stdout}}/handbrake/complete/'
 
     - name: 'Chmod download folder'
-      shell: 'chmod -R 775 {{path.stdout}}/{{pgrole}}/complete/'
+      shell: 'chmod -R 775 {{path.stdout}}/handbrake/complete/'
 
     - name: 'Watch folder'
       block:
         - name: 'Creating new watch location'
-          command: 'mkdir -p {{path.stdout}}/{{pgrole}}/watch'
+          command: 'mkdir -p {{path.stdout}}/handbrake/watch'
 
     - name: 'Chown download folder'
-      shell: 'chown -R 1000:1000 {{path.stdout}}/{{pgrole}}/watch/'
+      shell: 'chown -R 1000:1000 {{path.stdout}}/handbrake/watch/'
 
     - name: 'Chmod download folder'
-      shell: 'chmod -R 775 {{path.stdout}}/{{pgrole}}/watch/' 
+      shell: 'chmod -R 775 {{path.stdout}}/handbrake/watch/' 
 
     # LABELS ######################################################################
     - name: 'Adding Traefik'
@@ -82,19 +82,21 @@
     # MAIN DEPLOYMENT #############################################################
     - name: 'Create watch directory for {{pgrole}}'
       file:
-        path: {{path.stdout}}/{{pgrole}}/watch
+        path: {{path.stdout}}/handbrake/watch
         state: directory
         owner: 1000
         group: 1000
         mode: 0755
+        recurse: yes
 
     - name: 'Create complete directory for {{pgrole}}'
       file:
-        path: {{path.stdout}}/{{pgrole}}/complete
+        path: {{path.stdout}}/handbrake/complete
         state: directory
         owner: 1000
         group: 1000
         mode: 0755
+        recurse: yes
 
     - name: 'Deploying {{pgrole}}'
       docker_container:
