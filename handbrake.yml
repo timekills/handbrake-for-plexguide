@@ -30,28 +30,6 @@
         path: '{{path.stdout}}/{{pgrole}}'
       register: oldcheck
 
-    - name: 'Complete folder'
-      block:
-        - name: 'Creating new complete location'
-          command: 'mkdir -p {{path.stdout}}/handbrake/complete'
-
-    - name: 'Chown download folder'
-      shell: 'chown -R 1000:1000 {{path.stdout}}/handbrake/complete/'
-
-    - name: 'Chmod download folder'
-      shell: 'chmod -R 775 {{path.stdout}}/handbrake/complete/'
-
-    - name: 'Watch folder'
-      block:
-        - name: 'Creating new watch location'
-          command: 'mkdir -p {{path.stdout}}/handbrake/watch'
-
-    - name: 'Chown download folder'
-      shell: 'chown -R 1000:1000 {{path.stdout}}/handbrake/watch/'
-
-    - name: 'Chmod download folder'
-      shell: 'chmod -R 775 {{path.stdout}}/handbrake/watch/' 
-
     # LABELS ######################################################################
     - name: 'Adding Traefik'
       set_fact:
@@ -65,7 +43,7 @@
       set_fact:
         pg_volumes:
           - '/opt/appdata/{{pgrole}}/config:/config:rw'
-          - '$HOME:/storage:ro'
+          - 'ansible_env.HOME:/storage:ro'
           - '{{path.stdout}}:{{path.stdout}}'
           - '/mnt/unionfs:/mnt/unionfs'
           - '{{path.stdout}}/{{pgrole}}/watch/:/watch:rw'
