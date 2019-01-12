@@ -16,3 +16,5 @@ https://www.timekills.org/pg-apps/
 6. Run Plexguide
 
 Deploy handbrake app like any other app
+
+Note the port for web use is 5801
