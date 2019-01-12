@@ -1,2 +1,18 @@
 # handbrake-for-plexguide
-Handbrake through web interface or VNC for PlexGuide deployment
+Handbrake through web interface or VNC for PlexGuide deployment with Traefik integration and Google OAuth security
+
+https://www.timekills.org/pg-apps/
+
+# Google OAuth version
+
+
+#Instructions for a more automated (not copy and paste into jdownloader2.yml) approach
+
+1. Go to the /opt/mycontainers directory (cd /opt/mycontainers)
+2. Type the command: git init
+3. Type the command: git remote add handbrake https://github.com/timekills/handbrake-for-plexguide.git
+4. Type the command: git pull handbrake master
+5. (Optional) rm -r README.md if you don't want the README file cluttering up your drectory
+6. Run Plexguide
+
+Deploy handbrake app like any other app
