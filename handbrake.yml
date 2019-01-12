@@ -30,21 +30,27 @@
         path: '{{path.stdout}}/{{pgrole}}'
       register: oldcheck
 
-    - name: 'Migrations'
+    - name: 'Complete folder'
       block:
-        - name: 'Creating new downloads location'
-          command: 'mkdir -p {{path.stdout}}/incomplete/{{pgrole}}'
+        - name: 'Creating new complete location'
+          command: 'mkdir -p {{path.stdout}}/{{pgrole}}/complete'
 
     - name: 'Chown download folder'
-      shell: 'chown -R 1000:1000 {{path.stdout}}/incomplete/{{pgrole}}/'
+      shell: 'chown -R 1000:1000 {{path.stdout}}/{{pgrole}}/complete/'
 
     - name: 'Chmod download folder'
-      shell: 'chmod -R 775 {{path.stdout}}/incomplete/{{pgrole}}/'
+      shell: 'chmod -R 775 {{path.stdout}}/{{pgrole}}/complete/'
 
-    - name: 'Ini Check'
-      stat:
-        path: /opt/appdata/{{pgrole}}/core.conf
-      register: inicheck
+    - name: 'Watch folder'
+      block:
+        - name: 'Creating new watch location'
+          command: 'mkdir -p {{path.stdout}}/{{pgrole}}/watch'
+
+    - name: 'Chown download folder'
+      shell: 'chown -R 1000:1000 {{path.stdout}}/{{pgrole}}/watch/'
+
+    - name: 'Chmod download folder'
+      shell: 'chmod -R 775 {{path.stdout}}/{{pgrole}}/watch/' 
 
     # LABELS ######################################################################
     - name: 'Adding Traefik'
