@@ -6,7 +6,7 @@ https://www.timekills.org/pg-apps/
 # Google OAuth version
 
 
-#Instructions for a more automated (not copy and paste into jdownloader2.yml) approach
+#Instructions for a more automated (instead of copy and paste into handbrake.yml) approach
 
 1. Go to the /opt/mycontainers directory (cd /opt/mycontainers)
 2. Type the command: git init
