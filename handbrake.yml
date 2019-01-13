@@ -27,6 +27,9 @@
       stat:
         path: '{{path.stdout}}/{{pgrole}}'
       register: oldcheck
+      
+    - name: 'Get home variable'
+      debug: homestorage=ansible_env.HOME
 
     # LABELS ######################################################################
     - name: 'Adding Traefik'
@@ -41,7 +44,7 @@
       set_fact:
         pg_volumes:
           - '/opt/appdata/{{pgrole}}/config:/config:rw'
-          - '{{home}}:/storage:ro'
+          - '{{ansible_env.HOME}}:/storage:ro'
           - '{{path.stdout}}:{{path.stdout}}'
           - '/mnt/unionfs:/mnt/unionfs'
           - '{{path.stdout}}/{{pgrole}}/watch/Very_Fast_1080p30:/watch:rw'
