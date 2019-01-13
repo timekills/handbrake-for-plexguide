@@ -3,7 +3,7 @@ Handbrake through web interface or VNC for PlexGuide deployment with Traefik int
 
 https://www.timekills.org/pg-apps/
 
-# Google OAuth version
+# Google OAuth version (master branch)
 
 
 #Instructions for a more automated (instead of copy and paste into handbrake.yml) approach
