@@ -44,7 +44,7 @@
       set_fact:
         pg_volumes:
           - '/opt/appdata/{{pgrole}}/config:/config:rw'
-          - '{{ansible_env.HOME}}:/storage:ro'
+          - '/:/storage:ro'
           - '{{path.stdout}}:{{path.stdout}}'
           - '/mnt/unionfs:/mnt/unionfs'
           - '{{path.stdout}}/{{pgrole}}/watch/Very_Fast_1080p30:/watch:rw'
@@ -57,8 +57,8 @@
     - name: 'Setting PG ENV'
       set_fact:
         pg_env:
-          USER_ID: 0
-          GROUP_ID: 0
+          USER_ID: 1000
+          GROUP_ID: 1000
           AUTOMATED_CONVERSION_PRESET: "Very Fast 1080p30"
           AUTOMATED_CONVERSION_FORMAT: "mp4"
           AUTOMATED_CONVERSION_PRESET_2: "HQ 1080p30 Surround"
