@@ -18,7 +18,7 @@ https://www.timekills.org/pg-apps/
 1. Go to the /opt/mycontainers directory (cd /opt/mycontainers)
 2. Type the command: git init
 3. Type the command: git remote add handbrake https://github.com/timekills/handbrake-for-plexguide.git
-4. Type the command: git pull handbrake userpass
+4. Type the command: git pull handbrake quicksync
 5. rm -r .git
 6. (Optional) rm -r README.md if you don't want the README file cluttering up your drectory
 7. Run Plexguide
