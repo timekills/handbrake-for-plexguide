@@ -16,8 +16,6 @@
         pgrole: 'handbrake'
         intport: '5800'
         extport: '5800'
-        intport2: '5900'
-        extport2: '5900'
         image: 'jlesage/handbrake:dev-latest'
 
     # CORE (MANDATORY) ############################################################
@@ -43,21 +41,21 @@
       set_fact:
         pg_volumes:
           - '/opt/appdata/{{pgrole}}/config:/config:rw'
-          - 'ansible_env.HOME:/storage:ro'
+          - '{{home}}:/storage:ro'
           - '{{path.stdout}}:{{path.stdout}}'
           - '/mnt/unionfs:/mnt/unionfs'
           - '{{path.stdout}}/{{pgrole}}/watch/Very_Fast_1080p30:/watch:rw'
           - '{{path.stdout}}/{{pgrole}}/watch/HQ_1080p30_Surround:/watch2:rw'
           - '{{path.stdout}}/{{pgrole}}/watch/1080mkv:/watch3:rw'
           - '{{path.stdout}}/{{pgrole}}/complete/:/output:rw'
-          - '/dev/dri:/dev/dri'
+          - '/dev/dri:/dev/dri:rw'
           - '/etc/localtime:/etc/localtime:ro'
 
     - name: 'Setting PG ENV'
       set_fact:
         pg_env:
-          UID: 0
-          GID: 0
+          USER_ID: 0
+          GROUP_ID: 0
           AUTOMATED_CONVERSION_PRESET: "Very Fast 1080p30"
           AUTOMATED_CONVERSION_FORMAT: "mp4"
           AUTOMATED_CONVERSION_PRESET_2: "HQ 1080p30 Surround"
