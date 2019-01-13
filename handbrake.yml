@@ -18,7 +18,7 @@
         extport: '5800'
         intport2: '5900'
         extport2: '5900'
-        image: 'jlesage/handbrake'
+        image: 'jlesage/handbrake:dev-latest'
 
     # CORE (MANDATORY) ############################################################
     - name: 'Including cron job'
@@ -46,17 +46,23 @@
           - 'ansible_env.HOME:/storage:ro'
           - '{{path.stdout}}:{{path.stdout}}'
           - '/mnt/unionfs:/mnt/unionfs'
-          - '{{path.stdout}}/{{pgrole}}/watch/:/watch:rw'
-          - '{{path.stdout}}/{{pgrole}}/complete/:/output:rw'
+          - '{{path.stdout}}/{{pgrole}}/watch/Very_Fast_1080p30:/watch:rw'
+          - '{{path.stdout}}/{{pgrole}}/watch/HQ_1080p30_Surround:/watch2:rw'
+          - '{{path.stdout}}/{{pgrole}}/watch/1080mkv:/watch3:rw'
+          - '{{path.stdout}}/{{pgrole}}/output/:/output:rw'
           - '/etc/localtime:/etc/localtime:ro'
-          - '/dev/dri/card0:/dev/dri/card0'
-          - '/dev/dri/renderD128:/dev/dri/renderD128'
 
     - name: 'Setting PG ENV'
       set_fact:
         pg_env:
           UID: 1000
           GID: 1000
+          AUTOMATED_CONVERSION_PRESET: "Very Fast 1080p30"
+          AUTOMATED_CONVERSION_FORMAT: "mp4"
+          AUTOMATED_CONVERSION_PRESET_2: "HQ 1080p30 Surround"
+          AUTOMATED_CONVERSION_FORMAT_2: "mp4"
+          AUTOMATED_CONVERSION_PRESET_3: "H.264 MKV 1080p30"
+          AUTOMATED_CONVERSION_FORMAT_3: "mkv"
 #          SECURE_CONNECTION: 1
 
     # MAIN DEPLOYMENT #############################################################
