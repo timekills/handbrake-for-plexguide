@@ -49,6 +49,8 @@
           - '{{path.stdout}}/{{pgrole}}/watch/:/watch:rw'
           - '{{path.stdout}}/{{pgrole}}/complete/:/output:rw'
           - '/etc/localtime:/etc/localtime:ro'
+          - '/dev/dri/card0:/dev/dri/card0'
+          - '/dev/dri/renderD128:/dev/dri/renderD128'
 
     - name: 'Setting PG ENV'
       set_fact:
