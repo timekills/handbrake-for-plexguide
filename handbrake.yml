@@ -27,7 +27,7 @@
       stat:
         path: '{{path.stdout}}/{{pgrole}}'
       register: oldcheck
-      
+
     - name: 'Get home variable'
       debug: homestorage=ansible_env.HOME
 
