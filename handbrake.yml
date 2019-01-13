@@ -16,8 +16,6 @@
         pgrole: 'handbrake'
         intport: '5800'
         extport: '5800'
-        intport2: '5900'
-        extport2: '5900'
         image: 'jlesage/handbrake'
 
     # CORE (MANDATORY) ############################################################
@@ -53,8 +51,8 @@
     - name: 'Setting PG ENV'
       set_fact:
         pg_env:
-          UID: 1000
-          GID: 1000
+          USER_ID: 1000
+          GROUP_ID: 1000
 #          SECURE_CONNECTION: 1
 
     # MAIN DEPLOYMENT #############################################################
